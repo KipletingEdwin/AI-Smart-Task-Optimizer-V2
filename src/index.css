@@ -1,2 +1,28 @@
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #FAF9F5;
+  --color-ink: #22221F;
+  --color-ink-muted: #83817A;
+  --color-ember: #C4622D;
+  --color-ember-soft: #F3E2D6;
+  --color-line: #E7E4DA;
+  --color-moss: #57735A;
+  --color-moss-soft: #E3EAE1;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
