@@ -3,6 +3,10 @@ import React from 'react'
 
 export const SignUp = () => {
   return (
-    <div>SignUp</div>
+    <div>
+      <div>
+
+      </div>
+    </div>
   )
 }
