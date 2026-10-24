@@ -9,8 +9,8 @@ export const Login = () => {
 
   return (
     <div className='min-h-screen flex items-center justify-center'>
-      <div className='w-full max-w-sm p-8 rounded-sm border'>
-        <h1 className='text-2xl font-semibold mb-6 text-center'>Log In</h1>
+      <div className='border p-8 rounded-sm w-full max-w-sm'>
+        <h1 className="text-2xl font-semibold mb-6 text-center">Log In</h1>
         {
           error && (
             <div className='mb-4 p-3 bg-ember-soft text-ember rounded-sm text-sm'>
@@ -19,25 +19,30 @@ export const Login = () => {
           )}
 
           <form className='space-y-4'>
-            <fieldset>
+            <fieldset className='space-y-4'>
               <div>
-                <label>Email</label>
+                <label className="block text-sm font-medium mb-1">Email</label>
                 <input
                 type='email'
+                className="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-ember disabled:opacity-50"
                 required
                  />
               </div>
               <div>
-                <label>Password</label>
+                <label className="block text-sm font-medium mb-1">Password</label>
                 <input
                 type='password'
+                className="w-full px-3 py-2 border border-line rounded-sm focus:outline-none focus:ring-2 focus:ring-ember disabled:opacity-50"
                 required
                   />
               </div>
-              <button>Log In</button>
+              <button
+              type='submit'
+              className="cursor-pointer w-full flex items-center justify-center gap-2 bg-ink text-paper py-2 rounded-sm hover:bg-ember transition-colors disabled:opacity-60"
+              >Log In</button>
             </fieldset>
           </form>
-          <p>Don't have account?<Link to='/signup'>Sign Up</Link></p>
+          <p className="mt-4 text-sm text-center text-ink-muted">Don't have account?<Link to='/signup' className="text-ember hover:underline p-2">Sign Up</Link></p>
       </div> 
     </div>
   )
