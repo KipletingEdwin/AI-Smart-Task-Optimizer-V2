@@ -1,5 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const DEMO_TITLE = "Prepare for my Rails interview on Friday";
 const DEMO_SUBTASKS = [
@@ -32,52 +33,64 @@ const DEMO_SUBTASKS = [
 
 export const DemoPreview = () => {
 
-  // const [typed, setTyped] = useState('');
-  // const [revealed, setRevealed] = useState(false);
+  const [typed, setTyped] = useState('');
+  const [revealed, setRevealed] = useState(false);
 
-  // useEffect(() => {
-  //   let i = 0;
-  //   const typing = setInterval(() => {
-  //     i++;
-  //     setTyped(DEMO_SUBTASKS.slice(0, i));
+  useEffect(() => {
+    let i = 0;
+    const typing = setInterval(() => {
+      i++;
+      setTyped(DEMO_TITLE.slice(0, i));
 
-  //     if (i === DEMO_TITLE.length) {
-  //       clearInterval(typing);
-  //       setTimeout(() => setRevealed(true), 400);
-  //     }
-  //   }, 35);
-  //   return () => clearInterval(typing);
-  // }, []);
+      if (i === DEMO_TITLE.length) {
+        clearInterval(typing);
+        setTimeout(() => setRevealed(true), 400);
+      }
+    }, 35);
+    return () => clearInterval(typing);
+  }, []);
 
   return (
     <div className="border p-6 rounded-sm">
       <div className="border-b-2 border-ink pb-3 mb-6 gap-3 flex items-center ">
         <span className="flex-1 text-lg">
+          { typed}
           <span className="inline-block w-0.5 h-5 bg-ink ml-0.5 animate-pulse align-middle"/>
         </span>
-        <span>
+        <span className="flex items-center gap-2 text-ember font-medium text-sm shrink-0">
           Break it down <ArrowRight size={16} />
         </span>
       </div>
 
       <div className="flex items-center gap-3 mb-6 text-xs">
-        <span>Learning</span>
-        <span>.</span>
-        <span>3h 10m total</span>
+        <span className="text-ember font-medium">Learning</span>
+        <span className="text-line">.</span>
+        <span className="text-ink-muted font-manrope">3h 10m total</span>
       </div>
 
       <ul>
         {DEMO_SUBTASKS.map((subTask, index) => (
-          <li key={subTask.id}>
-            {index !== DEMO_SUBTASKS.length - 1 && <span />}
-            <span />
-            <div>
+          <li 
+          key={subTask.id}
+          className="relative flex gap-4 pb-6 last:pb-0 opacity-0"
+          style={
+            revealed ? { animation: `fadeInUp 0.4s ease fowards`, animationDelay: `${index * 0.12}s`} : {}
+          }
+          >
+            {index !== DEMO_SUBTASKS.length - 1 && (
+              <span className="absolute left-2.25 top-6 bottom-0 w-px bg-line"/>
+            )}
+
+            <span className="relative z-10 shrink-0 w-4.75 h-4.75 rounded-full border-2 border-line bg-white flex items-center justify-center" />
+            <div className="flex-1 flex items-baseline justify-between gap-3 -mt-0.5">
               <span>{subTask.description}</span>
-              <span>{subTask.estimated_minutes}m</span>
+              <span className="font-mono text-xs text-ink-muted shrink-0">{subTask.estimated_minutes}m</span>
             </div>
           </li>
         ))}
       </ul>
+
+      
     </div>
   );
 };

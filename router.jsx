@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <AuthLayout/>,
-        errorElement: <NotFound/>
+        // errorElement: <NotFound/>
     },
     {
         path: '/login',
