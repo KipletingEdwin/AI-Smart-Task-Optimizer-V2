@@ -82,7 +82,7 @@ export const DemoPreview = () => {
             )}
 
             <span className="relative z-10 shrink-0 w-4.75 h-4.75 rounded-full border-2 border-line bg-white flex items-center justify-center" />
-            <div className="flex-1 flex items-baseline justify-between gap-3 -mt-0.5">
+            <div className="flex-1 flex items-baseline justify-between gap-3 -mt-0.5 bg-slate-50">
               <span>{subTask.description}</span>
               <span className="font-mono text-xs text-ink-muted shrink-0">{subTask.estimated_minutes}m</span>
             </div>
