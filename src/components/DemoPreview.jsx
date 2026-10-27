@@ -51,10 +51,12 @@ export const DemoPreview = () => {
   }, []);
 
   return (
+
+    
     <div className="border p-6 rounded-sm">
-      <div className="border-b-2 border-ink pb-3 mb-6 gap-3 flex items-center ">
+      <div className="border-b-2 border-ink pb-3 mb-6 gap-3 flex items-center">
         <span className="flex-1 text-lg">
-          { typed}
+          {typed}
           <span className="inline-block w-0.5 h-5 bg-ink ml-0.5 animate-pulse align-middle"/>
         </span>
         <span className="flex items-center gap-2 text-ember font-medium text-sm shrink-0">
@@ -72,7 +74,7 @@ export const DemoPreview = () => {
         {DEMO_SUBTASKS.map((subTask, index) => (
           <li 
           key={subTask.id}
-          className="relative flex gap-4 pb-6 last:pb-0 opacity-0"
+          className="relative flex gap-4 pb-6 last:pb-0 opacity-0 bg-amber-300 "
           style={
             revealed ? { animation: `fadeInUp 0.4s ease fowards`, animationDelay: `${index * 0.12}s`} : {}
           }
