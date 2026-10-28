@@ -70,22 +70,24 @@ export const DemoPreview = () => {
         <span className="text-ink-muted font-manrope">3h 10m total</span>
       </div>
 
-      <ul>
+      <ul   >
         {DEMO_SUBTASKS.map((subTask, index) => (
           <li 
           key={subTask.id}
-          className="relative flex gap-4 pb-6 last:pb-0 opacity-0 bg-amber-300 "
-          style={
-            revealed ? { animation: `fadeInUp 0.4s ease fowards`, animationDelay: `${index * 0.12}s`} : {}
-          }
+            className="relative flex gap-4 pb-6"
+            style={
+              revealed
+                ? { animation: `fadeInUp 0.4s ease forwards`, animationDelay: `${index * 0.12}s` }
+                : {}
+            }
           >
             {index !== DEMO_SUBTASKS.length - 1 && (
               <span className="absolute left-2.25 top-6 bottom-0 w-px bg-line"/>
             )}
 
             <span className="relative z-10 shrink-0 w-4.75 h-4.75 rounded-full border-2 border-line bg-white flex items-center justify-center" />
-            <div className="flex-1 flex items-baseline justify-between gap-3 -mt-0.5 bg-slate-50">
-              <span>{subTask.description}</span>
+            <div className="flex-1 flex items-baseline justify-between gap-3 -mt-0.5">
+              <span className="text-amber-50">{subTask.description}</span>
               <span className="font-mono text-xs text-ink-muted shrink-0">{subTask.estimated_minutes}m</span>
             </div>
           </li>
