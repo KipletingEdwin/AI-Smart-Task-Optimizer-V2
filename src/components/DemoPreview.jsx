@@ -74,7 +74,7 @@ export const DemoPreview = () => {
         {DEMO_SUBTASKS.map((subTask, index) => (
           <li 
           key={subTask.id}
-            className="relative flex gap-4 pb-6"
+            className="relative flex gap-4 pb-6 last:pb-0 opacity-0  "
             style={
               revealed
                 ? { animation: `fadeInUp 0.4s ease forwards`, animationDelay: `${index * 0.12}s` }
